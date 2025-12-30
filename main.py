@@ -3,7 +3,7 @@ import numpy as np
 import joblib
 
 # Load model dan scaler
-model = joblib.load("model_rf.joblib")
+model = joblib.load("best_model_rf.joblib")
 scaler = joblib.load("scaler.joblib")
 
 # Judul aplikasi
@@ -64,10 +64,11 @@ ca_choice = st.selectbox("Jumlah Pembuluh Darah Utama yang Terlihat (ca)", list(
 ca = ca_dict[ca_choice]
 
 thal_dict = {
-    "Normal": 0,
+    "Unknown / missing": 0,
     "Fixed defect (kerusakan tetap)": 1,
-    "Reversible defect (kerusakan reversibel)": 2,
-    "Unknown / missing": 3
+    "Normal": 2,
+    "Reversible defect (kerusakan reversibel)": 3
+    
 }
 thal_choice = st.selectbox("Thalassemia (thal)", list(thal_dict.keys()))
 thal = thal_dict[thal_choice]

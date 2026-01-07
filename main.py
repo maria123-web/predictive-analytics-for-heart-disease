@@ -53,15 +53,7 @@ slope_dict = {
 slope_choice = st.selectbox("Kemiringan Segmen ST (slope)", list(slope_dict.keys()))
 slope = slope_dict[slope_choice]
 
-ca_dict = {
-    "0 - Tidak ada pembuluh darah tersumbat": 0,
-    "1 - 1 pembuluh darah utama tersumbat": 1,
-    "2 - 2 pembuluh darah utama tersumbat": 2,
-    "3 - 3 pembuluh darah utama tersumbat": 3,
-    "4 - 4 pembuluh darah utama tersumbat": 4
-}
-ca_choice = st.selectbox("Jumlah Pembuluh Darah Utama yang Terlihat (ca)", list(ca_dict.keys()))
-ca = ca_dict[ca_choice]
+ca = st.selectbox("Jumlah Pembuluh Darah Utama yang Terlihat (ca)", [0, 1, 2, 3, 4])
 
 thal_dict = {
     "Unknown / missing": 0,
@@ -102,3 +94,4 @@ if st.button("Prediksi"):
 # Footer
 st.markdown("---")
 st.caption("Model: KNN | Dataset: Heart Disease (Kaggle) | Dibuat dengan Streamlit 💕")
+
